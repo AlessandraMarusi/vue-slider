@@ -17,7 +17,7 @@
         @keyup.up="slideUp"
         @keyup.down="slideDown">
             <div class="slideContainer">
-                <div class="slide active">
+                <div class="slide" :class="{active: isActive}">
                     <img :src="items[currentIndex].immagine" alt="items[currentIndex].title">
                     <div class="slideText">
                         <h3>{{items[currentIndex].title}}</h3>

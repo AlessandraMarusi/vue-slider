@@ -33,16 +33,27 @@ const app = new Vue({
             ],
             currentIndex: 0,
             intervalId: null,
+            isActive: true,
+            isHidden: false,
         },
         methods: {
+            activeTrue(){
+                isActive = true;
+            },
             slideDown(){
+                this.isActive = false;
                 this.currentIndex = (this.currentIndex === 4) ? 0 : this.currentIndex += 1;
+                setTimeout(() => {this.isActive = true}, 0);
             },
             slideUp(){
                 this.currentIndex = (this.currentIndex === 0) ? 4 : this.currentIndex -= 1;
             },
             changeOnClick(thumb, index){
+                isHidden = true;
+                isActive = false;
                 this.currentIndex = index
+                isHidden = false;
+                isActive = true;
             },
             autoScroll(){
                 this.intervalId = setInterval(()=>{this.slideDown()},3000)
@@ -50,7 +61,7 @@ const app = new Vue({
             stopAutoScroll(){
                 clearInterval(this.intervalId);
                 this.intervalId = null;
-            }
+            },
         },
         mounted(){
             this.autoScroll();
