@@ -11,7 +11,9 @@
 </head>
 <body>
     <div id="app">
-        <div class="container">
+        <div class="container" 
+        @mouseover="stopAutoScroll"
+        @mouseleave="autoScroll">
             <div class="slideContainer">
                 <div class="slide active">
                     <img :src="items[currentIndex].immagine" alt="items[currentIndex].title">
@@ -52,7 +54,7 @@
             <div class="row">
                 <div id="up" @click="slideUp"><i class="fa-solid fa-chevron-up"></i></div>
                 <div id="down" @click="slideDown"><i class="fa-solid fa-chevron-down"></i></div>
-                <div class="col" :class="{'activeCol': index === currentIndex}" v-for="(thumb, index) in items">
+                <div class="col" :class="{'activeCol': index === currentIndex}" v-for="(thumb, index) in items" @click="changeOnClick(thumb, index)">
                     <img :src="thumb.immagine" :alt="thumb.title">
                 </div>
                 <!-- <div class="col">

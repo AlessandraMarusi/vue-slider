@@ -32,22 +32,28 @@ const app = new Vue({
                 }
             ],
             currentIndex: 0,
-            timer: null,
+            intervalId: null,
         },
         methods: {
             slideDown(){
                 this.currentIndex = (this.currentIndex === 4) ? 0 : this.currentIndex += 1;
-                console.log("sono un console log")
             },
             slideUp(){
                 this.currentIndex = (this.currentIndex === 0) ? 4 : this.currentIndex -= 1;
             },
             changeOnClick(thumb, index){
                 this.currentIndex = index
+            },
+            autoScroll(){
+                this.intervalId = setInterval(()=>{this.slideDown()},3000)
+            },
+            stopAutoScroll(){
+                clearInterval(this.intervalId);
+                this.intervalId = null;
             }
         },
         mounted(){
-
+            this.autoScroll();
         }
     }
 );
