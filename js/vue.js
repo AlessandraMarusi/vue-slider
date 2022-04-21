@@ -35,10 +35,10 @@ const app = new Vue({
         },
         methods: {
             slideDown(){
-
+                this.currentIndex = (this.currentIndex === 4) ? 0 : this.currentIndex += 1;
             },
             slideUp(){
-
+                this.currentIndex = (this.currentIndex === 0) ? 4 : this.currentIndex -= 1;
             }
         }
     }

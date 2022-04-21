@@ -50,9 +50,9 @@
                 </div> -->
             </div>
             <div class="row">
-                <div id="up"><i class="fa-solid fa-chevron-up"></i></div>
-                <div id="down"><i class="fa-solid fa-chevron-down"></i></div>
-                <div class="col" v-for="thumb in items">
+                <div id="up" @click="slideUp"><i class="fa-solid fa-chevron-up"></i></div>
+                <div id="down" @click="slideDown"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="col" :class="{'activeCol': index === currentIndex}" v-for="(thumb, index) in items">
                     <img :src="thumb.immagine" :alt="thumb.title">
                 </div>
                 <!-- <div class="col">
