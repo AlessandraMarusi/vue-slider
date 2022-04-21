@@ -32,14 +32,22 @@ const app = new Vue({
                 }
             ],
             currentIndex: 0,
+            timer: null,
         },
         methods: {
             slideDown(){
                 this.currentIndex = (this.currentIndex === 4) ? 0 : this.currentIndex += 1;
+                console.log("sono un console log")
             },
             slideUp(){
                 this.currentIndex = (this.currentIndex === 0) ? 4 : this.currentIndex -= 1;
+            },
+            changeOnClick(thumb, index){
+                this.currentIndex = index
             }
+        },
+        mounted(){
+
         }
     }
 );
